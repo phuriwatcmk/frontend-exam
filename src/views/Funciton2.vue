@@ -43,36 +43,37 @@ export default {
       // 31 // จำนวนวันในเดือนนี้
       // 3 // ไตรมาตรของเดือนนี้
       // 1597046092 // Unix timestamp
-      let options = {
-        day: "numeric",
-        month: "numeric",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-        timeZone: "Asia/Bangkok",
-      };
+      // let options = {
+      //   day: "numeric",
+      //   month: "numeric",
+      //   year: "numeric",
+      //   hour: "numeric",
+      //   minute: "2-digit",
+      //   timeZone: "Asia/Bangkok",
+      //   hour12: false,
+      // };
+      // let optionsDay = { day: "numeric" };
+      // var lastDate = new Date(
+      //   this.date.getFullYear(),
+      //   this.date.getMonth() + 1,
+      //   0
+      // );
+      //const date1 = new Intl.DateTimeFormat("en-GB", options).format(this.date);
       let optionsTHA = {
         year: "numeric",
         month: "long",
         day: "numeric",
         timeZone: "Asia/Bangkok",
       };
-      let optionsDay = { day: "numeric" };
-      var lastDate = new Date(
-        this.date.getFullYear(),
-        this.date.getMonth() + 1,
-        0
-      );
-      const date1 = new Intl.DateTimeFormat("th-TH", options).format(this.date);
       const date2 = new Intl.DateTimeFormat("th-TH", optionsTHA).format(
         this.date
       );
-      const date3 = new Intl.DateTimeFormat("th-TH", optionsDay).format(
-        lastDate
-      );
+      const date1 = dayjs(this.date).format("DD/MM/YYYY HH:mm");
+      const date3 = dayjs(this.date).endOf("month");
+      // console.log(test.$D);
       const date4 = dayjs(this.date).quarter();
       const date5 = dayjs(this.date).unix();
-      this.dateList.push(date1, date2, date3, date4, date5);
+      this.dateList.push(date1, date2, date3.$D, date4, date5);
     },
   },
   computed: {},
