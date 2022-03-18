@@ -3,7 +3,7 @@
 import Vue from "vue";
 import Vuetify from "vuetify/lib";
 
-import colors from "vuetify/lib/util/colors";
+// import colors from "vuetify/lib/util/colors";
 
 Vue.use(Vuetify);
 
@@ -16,7 +16,10 @@ export default new Vuetify({
       light: {
         primary: "#cbd5e0", //
         secondary: "#000000", //
-        accent: colors.indigo.base, // #3F51B5
+        skelton: "#b1bccc", //
+        skelton1: "#d1dae4",
+        menucolor: "#2c3e50",
+        topbar: "#718096",
       },
     },
   },

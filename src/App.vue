@@ -3,8 +3,8 @@
     <v-main>
       <v-row justify="center">
         <v-col cols="11">
-          <v-container fluid rounded class="primary text-center mt-10 mx-0">
-            <h1>Test Frontend</h1>
+          <v-container fluid rounded class="topbar text-center mt-10 mx-0">
+            <h1 class="white--text ma-4">Test Frontend</h1>
           </v-container>
         </v-col>
       </v-row>
@@ -35,4 +35,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+.theme--light.v-text-field--filled > .v-input__control > .v-input__slot {
+  border: 2px solid rgb(237, 242, 247);
+}
+</style>

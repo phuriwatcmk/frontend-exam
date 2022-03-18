@@ -1,25 +1,25 @@
 <template>
   <v-row justify="center">
-    <v-col cols="8" md="8">
-      <v-container rounded class="mt-10">
+    <v-col cols="4" md="4">
+      <v-container rounded class="">
         <v-container rounded class="primary">
-          <h2 class="text-center">Test from and validation</h2>
+          <h2 class="text-center menucolor--text">Test form and validation</h2>
           <FormSub v-on:handle-submit="showResult"></FormSub>
           <v-row class="d-block" v-if="this.result.length !== 0">
             <v-col>
               <h3>Result:</h3>
             </v-col>
-            <v-col>
-              <h3>First Name: {{ this.result[0].fname }}</h3>
+            <v-col class="py-0">
+              <p>First Name: {{ this.result[0].fname }}</p>
             </v-col>
-            <v-col>
-              <h3>Last Name: {{ this.result[0].lname }}</h3>
+            <v-col class="py-0">
+              <p>Last Name: {{ this.result[0].lname }}</p>
             </v-col>
-            <v-col>
-              <h3>Email: {{ this.result[0].email }}</h3>
+            <v-col class="py-0">
+              <p>Email: {{ this.result[0].email }}</p>
             </v-col>
-            <v-col>
-              <h3>Gender: {{ this.result[0].gender }}</h3>
+            <v-col class="py-0">
+              <p>Gender: {{ this.result[0].gender }}</p>
             </v-col>
           </v-row>
         </v-container>

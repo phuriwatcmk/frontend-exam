@@ -37,8 +37,10 @@ const actions = {
         return container;
       });
 
-      //console.log(pokemonsByMap);
-      commit("setPokemons", pokemonsByMap);
+      commit(
+        "setPokemons",
+        pokemonsByMap.sort((a, b) => a.id - b.id)
+      );
     });
   },
 };

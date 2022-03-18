@@ -1,64 +1,71 @@
 <template>
-  <v-container rounded class="red text-center mt-10">
+  <v-container rounded class="text-center mt-5">
     <v-row justify="center">
       <v-col cols="12" md="12">
         <v-container rounded class="primary">
-          <h2>Test fecth API</h2>
+          <h2 class="menucolor--text">Test fecth API</h2>
           <!-- <div class="d-flex justify-center flex-wrap"> -->
-          <v-list-item three-line v-if="this.allPokemon.length === 0">
+          <!-- <v-list-item three-line v-if="this.allPokemon.length === 0">
             <v-list-item-content>
               <v-list-item-title class="mt-5 mb-1 text-center">
                 ยังข้อมูล Pokemon
               </v-list-item-title>
             </v-list-item-content>
-          </v-list-item>
-          <v-row justify="center" class="parent mt-10">
-            <v-col
-              v-for="n in allPokemon"
-              :key="n.index"
-              cols="12"
-              md="auto"
-              align="start"
-              class=""
-            >
-              <v-card
-                class="mb-5"
-                max-width="175"
-                max-height="auto"
-                elevation="0"
-                color="transparent"
+          </v-list-item> -->
+          <div class="parent">
+            <v-row justify="center" class="mt-10">
+              <v-col
+                v-for="n in allPokemon"
+                :key="n.id"
+                cols="12"
+                md="auto"
+                align="center"
+                class="child"
               >
-                <v-img :src="n.url"></v-img>
-              </v-card>
-              <v-card
-                :elevation="n - 1"
-                height="20"
-                width="auto"
-                class="secondary mb-3 rounded-lg"
-              >
-                <v-row
-                  class="white--text"
-                  align="center"
-                  justify="center"
-                  v-text="n.name"
-                ></v-row>
-              </v-card>
-            </v-col>
-          </v-row>
-          <!-- <div
-              class="green mt-10 mx-10 my-10"
-              v-for="pokemon in allPokemon"
-              :key="pokemon.name"
-            >
-              <v-list-item three-line>
-                <v-list-item-content>
-                  <v-list-item-title class="mt-5 mb-1 text-center">
-                    {{ pokemon.name }}
-                  </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </div> -->
-          <!-- </div> -->
+                <v-card
+                  class="mb-5"
+                  max-width="175"
+                  max-height="175"
+                  elevation="0"
+                  color="transparent"
+                >
+                  <template v-if="firstLoad">
+                    <v-skeleton-loader
+                      class="skelton1 mb-5"
+                      width="175"
+                      height="175"
+                      elevation="0"
+                      type="image"
+                    ></v-skeleton-loader>
+                  </template>
+                  <v-img :src="n.url" v-if="!firstLoad"> </v-img>
+                </v-card>
+                <template v-if="firstLoad">
+                  <v-skeleton-loader
+                    class="skelton"
+                    height="25"
+                    width="175"
+                    elevation="0"
+                    type="card"
+                  ></v-skeleton-loader>
+                </template>
+                <v-card
+                  :elevation="0"
+                  height="25"
+                  width="200"
+                  v-if="!firstLoad"
+                  class="secondary mb-3 rounded-lg"
+                >
+                  <v-row
+                    class="white--text"
+                    align="center"
+                    justify="center"
+                    v-text="n.name"
+                  ></v-row>
+                </v-card>
+              </v-col>
+            </v-row>
+          </div>
         </v-container>
       </v-col>
     </v-row>
@@ -72,9 +79,14 @@ export default {
   name: "Pokemon",
   components: {},
   data() {
-    return {};
+    return {
+      firstLoad: true,
+    };
   },
   mounted() {
+    setTimeout(() => {
+      this.firstLoad = false;
+    }, 2000);
     this.getAllPokemons();
   },
   methods: {
@@ -94,7 +106,7 @@ export default {
   margin-left: -10px;
 }
 .child {
-  width: calc(25% - 10px);
+  width: calc(15% - 10px);
   margin-left: 10px;
   margin-top: 10px;
 }

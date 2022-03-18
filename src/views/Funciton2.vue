@@ -1,9 +1,9 @@
 <template>
-  <v-container rounded class="red text-center mt-10">
+  <v-container rounded class="text-center mt-5">
     <v-row justify="center">
       <v-col cols="12" md="12">
         <v-container rounded class="primary">
-          <h2>Function 2</h2>
+          <h2 class="menucolor--text">Function 2</h2>
           <v-col>
             <v-list-item v-for="n in dateList" :key="n.index">
               <v-list-item-content>
