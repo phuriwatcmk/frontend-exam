@@ -1,81 +1,55 @@
 <template>
-  <v-container rounded class="text-center mt-10">
-    <v-row justify="center">
-      <v-col cols="8" md="4">
+  <v-row justify="center">
+    <v-col cols="8" md="8">
+      <v-container rounded class="mt-10">
         <v-container rounded class="primary">
-          <h2>Test from and validation</h2>
-          <v-form ref="form" class="mt-5">
-            <v-row>
-              <v-col cols="4">
-                <h3>First name</h3>
-              </v-col>
-
-              <v-col cols="6">
-                <v-text-field label="Please fill First name" solo></v-text-field>
-              </v-col>
-            </v-row>
-
-            <v-row>
-              <v-col cols="4">
-                <h3>Last name</h3>
-              </v-col>
-              <v-col cols="6">
-                <v-text-field label="Please fill Last name" solo></v-text-field>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="4">
-                <h3>E-mail</h3>
-              </v-col>
-              <v-col cols="6">
-                <v-text-field label="Please fill E-mail" solo></v-text-field>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="4">
-                <h3>Password</h3>
-              </v-col>
-              <v-col cols="6">
-                <v-text-field label="Please fill password" solo></v-text-field>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="4">
-                <h3>Verify Password</h3>
-              </v-col>
-              <v-col cols="6">
-                <v-text-field label="Please fill verify password" solo></v-text-field>
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="4">
-                <h3>Gender</h3>
-              </v-col>
-              <v-col cols="6">
-                <v-autocomplete
-                  dense
-                  filled
-                  solo
-                  placeholder="Please select gender"
-                ></v-autocomplete>
-              </v-col>
-            </v-row>
-            <v-row class="mb-5">
-              <v-col cols="4"> </v-col>
-              <v-col cols="2">
-                <v-btn color="success">Submit</v-btn>
-              </v-col>
-            </v-row>
-          </v-form>
+          <h2 class="text-center">Test from and validation</h2>
+          <FormSub v-on:handle-submit="showResult"></FormSub>
+          <v-row class="d-block" v-if="this.result.length !== 0">
+            <v-col>
+              <h3>Result:</h3>
+            </v-col>
+            <v-col>
+              <h3>First Name: {{ this.result[0].fname }}</h3>
+            </v-col>
+            <v-col>
+              <h3>Last Name: {{ this.result[0].lname }}</h3>
+            </v-col>
+            <v-col>
+              <h3>Email: {{ this.result[0].email }}</h3>
+            </v-col>
+            <v-col>
+              <h3>Gender: {{ this.result[0].gender }}</h3>
+            </v-col>
+          </v-row>
         </v-container>
-      </v-col>
-    </v-row>
-  </v-container>
+      </v-container>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
+import FormSub from "@/components/FormSubmit.vue";
 export default {
   name: "Home",
-  components: {},
+  components: {
+    FormSub,
+  },
+  data() {
+    return {
+      result: [],
+    };
+  },
+  mounted() {
+    // console.log(this.result.lenght);
+  },
+  methods: {
+    showResult(result) {
+      this.result = result;
+      console.log(this.result.length);
+      console.log(this.result);
+    },
+  },
+  computed: {},
 };
 </script>
