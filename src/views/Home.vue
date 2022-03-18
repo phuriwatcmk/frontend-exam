@@ -46,8 +46,8 @@ export default {
   methods: {
     showResult(result) {
       this.result = result;
-      console.log(this.result.length);
-      console.log(this.result);
+      //console.log(this.result.length);
+      //console.log(this.result);
     },
   },
   computed: {},

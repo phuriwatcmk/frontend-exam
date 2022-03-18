@@ -24,7 +24,7 @@ const actions = {
   // },
 
   getAllPokemons({ commit }) {
-    console.log("get all pokemon processing ... 🍌");
+    //console.log("get all pokemon processing ... 🍌");
     pokemonService.getAllPokemon().then((pokemons) => {
       // console.log(pokemons)
       const pokemonsByMap = pokemons.map((item) => {

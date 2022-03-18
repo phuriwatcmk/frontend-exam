@@ -24,14 +24,14 @@ async function getAllPokemon() {
     const request = axios.get(`${pokemonUrl}/pokemon-form/${i}`).then(
       (response) => {
         if (response.status === 500) {
-          console.log("no pokemon found");
+          //console.log("no pokemon found");
         } else {
           //console.log(response);
           data.push(response.data);
         }
       },
       (error) => {
-        console.log("no email found ", error);
+        console.log("no pokemon found ", error);
       }
     );
     console.log("axios request done");

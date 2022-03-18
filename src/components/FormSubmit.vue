@@ -140,7 +140,7 @@ export default {
   methods: {
     handleSubmit() {
       //if validate
-      console.log("check from component");
+      //console.log("check from component");
       this.$refs.form.validate();
       if (this.isFormValid) {
         console.log("gogo");

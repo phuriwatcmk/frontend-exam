@@ -86,7 +86,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.firstLoad = false;
-    }, 2000);
+    }, 2300);
     this.getAllPokemons();
   },
   methods: {
