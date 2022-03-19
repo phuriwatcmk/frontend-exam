@@ -23,7 +23,7 @@
               filled
               elevation="0"
               required
-              :rules="[rules.required]"
+              :rules="[rules.required, rules.thaiEng]"
             ></v-text-field>
           </v-col>
         </v-row>
@@ -36,7 +36,7 @@
             <v-text-field
               v-model="form.lastname"
               label="Please fill Last name"
-              :rules="[rules.required]"
+              :rules="[rules.required, rules.thaiEng]"
               dense
               filled
               solo
@@ -165,6 +165,9 @@ export default {
         required: (v) => !!v || "Please fill out this field.",
         email: (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
         password: (v) => v === this.form.password || "Password must match",
+        thaiEng: (v) =>
+          /^[a-zA-Zก-ฮะ-์\s]+$/.test(v) ||
+          "must be characters in thai language and english language only",
       };
     },
   },
