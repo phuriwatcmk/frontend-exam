@@ -84,18 +84,6 @@
               </router-link>
             </li>
           </ul>
-          <!-- <router-link active-class="active" to="/pokemon" exact>
-            <h2 class="ma-5">Pokemon</h2>
-          </router-link>
-          <router-link active-class="active" to="/function1" exact>
-            <h2 class="ma-5">Function 1</h2>
-          </router-link>
-          <router-link active-class="active" to="/function2" exact>
-            <h2 class="ma-5">Function 2</h2>
-          </router-link>
-          <router-link active-class="active" to="/function3" exact>
-            <h2 class="ma-5">Function 3</h2>
-          </router-link> -->
         </nav>
       </v-col>
     </v-row>

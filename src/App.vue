@@ -26,12 +26,7 @@ export default {
     active: "home",
   }),
 
-  methods: {
-    makeActive: function (item) {
-      // When a model is changed, the view will be automatically updated.
-      this.active = item;
-    },
-  },
+  methods: {},
 };
 </script>
 
