@@ -34,7 +34,7 @@ async function getAllPokemon() {
         console.log("no pokemon found ", error);
       }
     );
-    console.log("axios request done");
+    //console.log("axios request done");
     promises.push(request);
   }
   await Promise.all(promises);

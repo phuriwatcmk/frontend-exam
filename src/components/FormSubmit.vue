@@ -143,7 +143,7 @@ export default {
       //console.log("check from component");
       this.$refs.form.validate();
       if (this.isFormValid) {
-        console.log("gogo");
+        //console.log("gogo");
         let submitedForm = {
           fname: this.form.firstname,
           lname: this.form.lastname,
