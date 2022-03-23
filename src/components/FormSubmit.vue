@@ -4,7 +4,6 @@
       <v-form
         ref="form"
         lazy-validation
-        v-model="isFormValid"
         @submit.prevent="handleSubmit"
         class="mt-5"
       >
@@ -109,9 +108,7 @@
         <v-row class="mb-5">
           <v-col cols="4"> </v-col>
           <v-col cols="2">
-            <v-btn :disabled="!isFormValid" color="success" type="submit"
-              >Submit</v-btn
-            >
+            <v-btn color="success" type="submit"> Submit </v-btn>
           </v-col>
         </v-row>
       </v-form>
@@ -140,8 +137,10 @@ export default {
   methods: {
     handleSubmit() {
       //if validate
-      //console.log("check from component");
-      this.$refs.form.validate();
+      if (this.$refs.form.validate()) {
+        this.isFormValid = true;
+      }
+      //console.log(this.isFormValid);
       if (this.isFormValid) {
         //console.log("gogo");
         let submitedForm = {
@@ -155,6 +154,7 @@ export default {
         this.subForm.pop();
         this.subForm.push(submitedForm);
         this.$emit("handle-submit", this.subForm);
+        this.isFormValid = true;
       }
     },
   },
